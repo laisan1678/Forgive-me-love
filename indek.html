@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Minta Maaf Dulu Ya! 🥺💙</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Comic Sans MS', 'Chalkboard SE', 'Poppins', sans-serif;
+        }
+
+        body {
+            background-color: #e0f2fe;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            overflow: hidden;
+        }
+
+        /* Container Card */
+        .card-container {
+            background: #ffffff;
+            width: 90%;
+            max-width: 420px;
+            height: 580px;
+            border-radius: 30px;
+            box-shadow: 0 15px 35px rgba(147, 197, 253, 0.4);
+            border: 4px solid #bae6fd;
+            position: relative;
+            overflow: hidden;
+            text-align: center;
+            padding: 25px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        /* Hiasan background */
+        .decor {
+            position: absolute;
+            font-size: 1.5rem;
+            animation: float 3s ease-in-out infinite alternate;
+            z-index: 1;
+        }
+        .d1 { top: 15px; left: 15px; animation-delay: 0s; }
+        .d2 { top: 20px; right: 20px; animation-delay: 0.5s; }
+        .d3 { bottom: 20px; left: 20px; animation-delay: 1s; }
+        .d4 { bottom: 25px; right: 25px; animation-delay: 1.5s; }
+
+        @keyframes float {
+            0% { transform: translateY(0px) rotate(0deg); }
+            100% { transform: translateY(-10px) rotate(10deg); }
+        }
+
+        /* Slide Control */
+        .slide {
+            display: none;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100%;
+            z-index: 2;
+            animation: fadeIn 0.5s ease-in-out;
+        }
+
+        .slide.active {
+            display: flex;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: scale(0.95); }
+            to { opacity: 1; transform: scale(1); }
+        }
+
+        /* Elements */
+        .emoji-gif {
+            font-size: 5rem;
+            margin-bottom: 15px;
+        }
+
+        h2 {
+            color: #0284c7;
+            font-size: 1.5rem;
+            margin-bottom: 12px;
+        }
+
+        p {
+            color: #38bdf8;
+            font-size: 1rem;
+            line-height: 1.5;
+            color: #475569;
+            margin-bottom: 15px;
+        }
+
+        /* Buttons */
+        .btn-group {
+            display: flex;
+            gap: 12px;
+            justify-content: center;
+            width: 100%;
+            margin-top: 10px;
+            position: relative;
+        }
+
+        button {
+            background-color: #38bdf8;
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            font-size: 1rem;
+            font-weight: bold;
+            border-radius: 20px;
+            cursor: pointer;
+            box-shadow: 0 4px 10px rgba(56, 189, 248, 0.3);
+            transition: all 0.2s ease;
+        }
+
+        button:hover {
+            background-color: #0284c7;
+            transform: translateY(-2px);
+        }
+
+        /* Tombol Kabur khusus */
+        #btn-kabur {
+            background-color: #f43f5e;
+            box-shadow: 0 4px 10px rgba(244, 63, 94, 0.3);
+            position: absolute;
+            transition: all 0.1s ease;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="card-container">
+        <!-- Hiasan Lucu -->
+        <div class="decor d1">✨</div>
+        <div class="decor d2">☁️</div>
+        <div class="decor d3">💙</div>
+        <div class="decor d4">🧸</div>
+
+        <!-- SLIDE 1 -->
+        <div class="slide active" id="slide1">
+            <div class="emoji-gif">🥺☁️</div>
+            <h2>MAAP UDAH BIKIN AYANG SEDIH🥺</h2>
+            <p>Aku mau ngomong sesuatu yang dibaca dulu yah,aku kepikiran terus yang aku gamau ayang sedih aku pengen perbaiki itu sayang🥺</p>
+            <button onclick="nextSlide(2)">Lanjut Baca 🪄</button>
+        </div>
+
+        <!-- SLIDE 2 -->
+        <div class="slide" id="slide2">
+            <div class="emoji-gif">💔🩹</div>
+            <h2>AKU MINTA MAAP YA SAYANG<h2>
+            <p>Aku salah kemarin yang kata awalan yang aku ucapin bukan yang ayng mau but bukan itu yang aku maksud yang🥺aku apresiasi semua yang ayang bikin cuman kata awalan yang aku sebut malah bukan apresiasi ke ayang malah bikin ayang sedih🥺,aku menyesal yang aku salah maapin aku yah aku salah ucap kemarin🥺semoga ayang bisa maapin aku yah😞</p>
+            <button onclick="nextSlide(3)">Janji? Lanjut ➡️</button>
+        </div>
+
+        <!-- SLIDE 3 -->
+        <div class="slide" id="slide3">
+            <div class="emoji-gif">👉🏻👈🏻</div>
+            <h2>Aku di maapin ga sayang🥺</h2>
+            <p>Aku tunggu jawaban ayang yah coba pencet yang ada di bawah ini yah 💖</p>
+            <div class="btn-group" style="height: 60px;">
+                <button onclick="nextSlide(4)">Dimaafin kan🥺</button>
+                <button id="btn-kabur" onmouseover="kabur()" onclick="kabur()">gak dimaapin 🥲</button>
+            </div>
+        </div>
+
+        <!-- SLIDE 4 -->
+        <div class="slide" id="slide4">
+            <div class="emoji-gif">🎉🥳�🩵🩵</div>
+            <h2>SAYANG TIMAKACI BANYAK🥺🫰</h2>
+            <p>Sayang aku tau masih ada kesel di ayang karna ucapan ku kemarin,tapi aku pen liat hasil susah payah buatan ayang,aku pengen nilai semua kerja keras sayang,aku pengen ayang bahagia trus yah🥺semoga kesalnya masih ga membekas ya sayang,loveyou sayangkuu sekebon galaxi😍🩵🩵🩵✨</p>
+            <button onclick="location.reload()">Ulangi Lagi 🔄</button>
+        </div>
+    </div>
+
+    <script>
+        function nextSlide(slideNumber) {
+            document.querySelectorAll('.slide').forEach(s => s.classList.remove('active'));
+            document.getElementById('slide' + slideNumber).classList.add('active');
+        }
+
+        // Fitur Tombol Kabur pas mau di-hover/di-klik
+        function kabur() {
+            const btn = document.getElementById('btn-kabur');
+            // Menghitung posisi acak di dalam container
+            const x = Math.floor(Math.random() * 200) - 100;
+            const y = Math.floor(Math.random() * 200) - 100;
+            
+            btn.style.transform = `translate(${x}px, ${y}px)`;
+        }
+    </script>
+</body>
+            </html>
